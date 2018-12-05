@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Result</title>
+	{%load static from staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static './main/style.css' %}">
+</head>
+<body>
+	<h1 id="titulo">Resultados</h1>
+	<p class="text"><b>Mensaje inicial:</b><br/> {{text}}</p>
+	<p class="text"><b>Mensaje {{modo}}:</b><br/> {{men}}</p>
+	<p id="key">Llave: {{key}}</p>
+	<a href="/"><button>volver</button></a>
+</body>
+</html>

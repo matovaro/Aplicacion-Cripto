@@ -1,0 +1,59 @@
+body{
+	background-color: #E6F1F5;
+}
+
+#titulo{
+	text-align: center;
+	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+	font-weight: 400;
+	font-size: 50px;
+	color: #171818;
+}
+
+#buttons{
+	display: grid;
+	justify-items: center;
+}
+
+.boton button{
+	border: 0;
+	font-size: 30px;
+	width: 300px;
+	height: 100px;
+	margin-top: 50px;
+	border-radius: 20px;
+	color: grey;
+	background-color: #81EFFF;
+}
+
+.boton button:hover{
+	background-color: #1B4F87;	
+}
+
+.text{
+	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+	font-size: 20px;
+	text-align: center;
+	width: 700px !important;
+	height: 200px;
+	overflow: scroll;
+	margin-left: 15em;
+}
+
+#key{
+	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+	font-size: 20px;
+	text-align: center;
+	color: red;
+}
+
+#form{
+	margin-left: 20em;
+	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+	display: grid;
+	grid-template-rows: 20px 30px 20px 200px 20px 80px 30px ;
+	width: 700px;
+}
+
+
+

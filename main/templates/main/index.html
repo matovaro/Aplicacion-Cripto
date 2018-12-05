@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Cipher</title>
+	{%load static from staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static './main/style.css' %}">
+</head>
+<body>
+	<h1 id="titulo">Cifra el texto que deses!</h1>
+	<div id="buttons">
+		<a href="/aes" class="boton"><button>Algoritmo AES</button></a>
+		<a href="/eoa" class="boton"><button>Algoritmo TBCA</button></a>
+	</div>
+</body>
+</html>
