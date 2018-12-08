@@ -195,6 +195,7 @@ def encryp(mensaje, key):
 
     llaves = keyGenerator(originalKey)
     cont = 0
+    extr = 0
     numMensajes = 1;
     mansajes = {}
 
@@ -208,8 +209,12 @@ def encryp(mensaje, key):
         for i in range(4):
             for j in range(4):
                 if cont >= len(mensaje):
-                    matris[i][j] = ord('x')
-                    cont += 1
+                    if i==3 and j==3:
+                        matris[i][j] = ord(str(extr))
+                    else:
+                        matris[i][j] = ord('x')
+                        cont += 1
+                        extr += 1
                 else:
                     matris[i][j] = ord(mensaje[cont])
                     cont += 1
@@ -233,7 +238,7 @@ def encryp(mensaje, key):
                     string += sTem[1]
     return string
 
-
+#print(encryp('Probando el algoritmo de encriptacion AEES','vamosaproba'))
 #/////////////////////////////////////////////////////////decrypt////////////////////////
 
 def invMixx(r):
@@ -329,10 +334,12 @@ def decrypt(mensaje, key):
         for j in range(4):
             for k in range(4):
                 string += chr(matris[j][k])
+    tam = int(string[len(string)-1])
+    string = string[0:len(string)-tam-1]
     return string
-
+#print(decrypt('9f3ec775fc6ecaf661ce6884e70bd32219f75d6ca48e121490c3cb13c25e5b06368484fa5cc4e596c246fd88401a595b','vamosaproba'))
 """
-/////////////////////////////////////////PRUEBA DE QUE FUNCIONA/////////////////////////
+#/////////////////////////////////////////PRUEBA DE QUE FUNCIONA/////////////////////////
 mensaje = "hola mundo142531"
 llave = 'a23456asdf423658'
 
