@@ -44,17 +44,6 @@ def powermod(a,b,n):
 def breakArray(stri):
     men_arr=[]
 
-    # for i in range(math.ceil(len(stri) / 3)):
-    #     start = i * 3
-    #     end = (i + 1) * 3
-    #
-    #     temp=stri[start:end]
-    #
-    #     tempo=[]
-    #     for j in range(len(temp)):
-    #         tempo.append(ord(temp[j]))
-    #     men_arr.append(tempo)
-    # return  men_arr
 
     for i in range(len(stri)):
         start = i
@@ -83,21 +72,19 @@ def sign(strin,d,n):
 
     re=''
     for i in range(len(y)):
-        re=re+str(y[i])+'/'
-   # print(arrt[2].split('/'))
+        re=re+str(y[i])+'&'
     return re
 
 def ver(y,e,n,m):
     x = []
-    test=y.rstrip('/').split('/')
+    test=y.rstrip('&').split('&')
     for i in range(len(test)):
         mens = powermod(int(test[i]), e, n)
         x.append(mens)
     fx=''
     for i in range(len(x)):
-        fx=fx+str(x[i])+'/'
-    fn=fx.rstrip('/').split('/')
-    #print(fn)
+        fx=fx+str(x[i])+'&'
+    fn=fx.rstrip('&').split('&')
 
     fx=''
     for j in range(len(fn)):
@@ -143,27 +130,27 @@ def prD():
 
 
 
-#m='6882326879666683'
-m='Funciona'
-#m='AZaz'
-print('m=',end=' ')
-print(m)
-mens_array=[]
-
-st=str(m)
-
-
-print('Sign')
-crip_array=sign(st,d,n)
-print(crip_array)
-
-print('Verification')
-#messa_array=ver('9883992373/5548158300/3903790183/10476177647/7025471146/168550448/3903790183/452861407/',270618377,n,m)
-messa_array=ver(crip_array,e,n,m)
-print(messa_array)
-
-
-print(prE())
-print(prD())
+# #m='6882326879666683'
+# m='Funciona'
+# #m='AZaz'
+# print('m=',end=' ')
+# print(m)
+# mens_array=[]
+#
+# st=str(m)
+#
+#
+# print('Sign')
+# crip_array=sign(st,d,n)
+# print(crip_array)
+#
+# print('Verification')
+# #messa_array=ver('9883992373/5548158300/3903790183/10476177647/7025471146/168550448/3903790183/452861407/',270618377,n,m)
+# messa_array=ver(crip_array,e,n,m)
+# print(messa_array)
+#
+#
+# print(prE())
+# print(prD())
 
 
