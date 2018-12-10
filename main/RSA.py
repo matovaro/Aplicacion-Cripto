@@ -44,9 +44,21 @@ def powermod(a,b,n):
 def breakArray(stri):
     men_arr=[]
 
-    for i in range(math.ceil(len(stri) / 3)):
-        start = i * 3
-        end = (i + 1) * 3
+    # for i in range(math.ceil(len(stri) / 3)):
+    #     start = i * 3
+    #     end = (i + 1) * 3
+    #
+    #     temp=stri[start:end]
+    #
+    #     tempo=[]
+    #     for j in range(len(temp)):
+    #         tempo.append(ord(temp[j]))
+    #     men_arr.append(tempo)
+    # return  men_arr
+
+    for i in range(len(stri)):
+        start = i
+        end = (i + 1)
 
         temp=stri[start:end]
 
@@ -68,30 +80,28 @@ def sign(strin,d,n):
         te=int(tm)
         cr = powermod(te, d, n)
         y.append(cr)
-    arrt=[]
-    arrt.append(x)
-    arrt.append(y)
-    return arrt
+
+    re=''
+    for i in range(len(y)):
+        re=re+str(y[i])+'/'
+   # print(arrt[2].split('/'))
+    return re
 
 def ver(y,e,n,m):
     x = []
-    for i in range(len(y[1])):
-        mens = powermod(y[1][i], e, n)
+    test=y.rstrip('/').split('/')
+    for i in range(len(test)):
+        mens = powermod(int(test[i]), e, n)
         x.append(mens)
-
-    fc=[]
-    for i in range(len(y[0])):
-        veri=''
-        for j in range(len(y[0][i])):
-            veri=veri+str(y[0][i][j])
-        fc.append(int(veri))
-
-    ty=y[0]
     fx=''
-    if(fc==x):
-        for i in range(len(ty)):
-            for j in range(len(ty[i])):
-                fx=fx+chr(ty[i][j])
+    for i in range(len(x)):
+        fx=fx+str(x[i])+'/'
+    fn=fx.rstrip('/').split('/')
+    #print(fn)
+
+    fx=''
+    for j in range(len(fn)):
+        fx=fx+chr(int(fn[j]))
     if(fx == m):
         return fx
     else:
@@ -134,7 +144,7 @@ def prD():
 
 
 #m='6882326879666683'
-m='Hello my friendjhjhjhj'
+m='Funciona'
 #m='AZaz'
 print('m=',end=' ')
 print(m)
@@ -145,9 +155,10 @@ st=str(m)
 
 print('Sign')
 crip_array=sign(st,d,n)
-print(crip_array[1])
+print(crip_array)
 
 print('Verification')
+#messa_array=ver('9883992373/5548158300/3903790183/10476177647/7025471146/168550448/3903790183/452861407/',270618377,n,m)
 messa_array=ver(crip_array,e,n,m)
 print(messa_array)
 
