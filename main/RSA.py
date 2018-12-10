@@ -1,5 +1,6 @@
 import math
 import random
+import codecs
 
 def gcd(a,b):
     if(b==0):
@@ -40,39 +41,66 @@ def powermod(a,b,n):
 
     return z
 
+def breakArray(stri):
+    men_arr=[]
 
-def sign(x,d,n):
+    for i in range(math.ceil(len(stri) / 3)):
+        start = i * 3
+        end = (i + 1) * 3
+
+        temp=stri[start:end]
+
+        tempo=[]
+        for j in range(len(temp)):
+            tempo.append(ord(temp[j]))
+        men_arr.append(tempo)
+    return  men_arr
+
+def sign(strin,d,n):
     y = []
+    x = breakArray(strin)
     for i in range(len(x)):
-        cr = powermod(x[i], d, n)
+        g=x[i]
+        tm=''
+        for j in range(len(g)):
+            tm=tm+str(g[j])
+
+        te=int(tm)
+        cr = powermod(te, d, n)
         y.append(cr)
-    return y
+    arrt=[]
+    arrt.append(x)
+    arrt.append(y)
+    return arrt
 
 def ver(y,e,n,m):
     x = []
-    for i in range(len(y)):
-        mens = powermod(y[i], e, n)
+    for i in range(len(y[1])):
+        mens = powermod(y[1][i], e, n)
         x.append(mens)
-    fx=''
-    for i in range(len(x)):
-        fx=fx + str(x[i])
 
-    fx=int(fx,10);
+    fc=[]
+    for i in range(len(y[0])):
+        veri=''
+        for j in range(len(y[0][i])):
+            veri=veri+str(y[0][i][j])
+        fc.append(int(veri))
+
+    ty=y[0]
+    fx=''
+    if(fc==x):
+        for i in range(len(ty)):
+            for j in range(len(ty[i])):
+                fx=fx+chr(ty[i][j])
     if(fx == m):
-        return True
+        return fx
     else:
-        return False
+        return 'Firma no valida'
 
 def getE(lim):
     return random.randint(1, lim)
 
-def breakArray(stri):
-    men_arr=[]
-    for i in range(math.ceil(len(stri) / 3)):
-        start = i * 3
-        end = (i + 1) * 3
-        men_arr.append(int(stri[start:end]))
-    return  men_arr
+
 p=104723
 q=104729
 
@@ -91,7 +119,7 @@ while(d < 0):
 
 
 
-    #print(gcd(e,phi))
+
 
     EA = EEA(phi,e)
 
@@ -105,20 +133,19 @@ def prD():
 
 
 
-m=6882326879666683
+#m='6882326879666683'
+m='Hello my friendjhjhjhj'
+#m='AZaz'
 print('m=',end=' ')
 print(m)
 mens_array=[]
 
 st=str(m)
 
-mens_array = breakArray(st);
-print('Mensaje array=',end=' ')
-print(mens_array)
 
 print('Sign')
-crip_array=sign(mens_array,d,n)
-print(crip_array)
+crip_array=sign(st,d,n)
+print(crip_array[1])
 
 print('Verification')
 messa_array=ver(crip_array,e,n,m)
