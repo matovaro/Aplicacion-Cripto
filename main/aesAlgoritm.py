@@ -210,7 +210,7 @@ def encryp(mensaje, key):
             for j in range(4):
                 if cont >= len(mensaje):
                     if i==3 and j==3:
-                        matris[i][j] = ord(str(extr))
+                        matris[i][j] = int(str(extr))
                     else:
                         matris[i][j] = ord('x')
                         cont += 1
@@ -238,7 +238,7 @@ def encryp(mensaje, key):
                     string += sTem[1]
     return string
 
-#print(encryp('Probando el algoritmo de encriptacion AEES','vamosaproba'))
+print(encryp('10778973248&10588082327&7528523797&7528523797&4329290755&','hola'))
 #/////////////////////////////////////////////////////////decrypt////////////////////////
 
 def invMixx(r):
@@ -333,22 +333,28 @@ def decrypt(mensaje, key):
         matris = blokes[i]
         for j in range(4):
             for k in range(4):
-                string += chr(matris[j][k])
+                if j==3 and k==3:
+                    string += str(matris[j][k])
+                #print(matris[j][k], end=' ')
+                else:
+                    string += chr(matris[j][k])
+                #print(chr(matris[j][k]))
+    #print(string)
     tam = int(string[len(string)-1])
     string = string[0:len(string)-tam-1]
     return string
 #print(decrypt('9f3ec775fc6ecaf661ce6884e70bd32219f75d6ca48e121490c3cb13c25e5b06368484fa5cc4e596c246fd88401a595b','vamosaproba'))
-"""
+
 #/////////////////////////////////////////PRUEBA DE QUE FUNCIONA/////////////////////////
-mensaje = "hola mundo142531"
-llave = 'a23456asdf423658'
+# mensaje = "hola mundo123"
+# llave = 'a23456asdf423658'
+#
+# cText = encryp(mensaje, llave)
+#
+# pText = decrypt(cText, llave)
+#
+#
+# print(cText)
+# print(pText)
 
-cText = encryp(mensaje, llave)
 
-pText = decrypt(cText, llave)
-
-
-print(cText)
-print(pText)
-
-"""

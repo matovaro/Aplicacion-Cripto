@@ -163,24 +163,24 @@ def prD():
 
 
 
-# #m='6882326879666683'
-# m='Funciona'
-# #m='AZaz'
-# print('m=',end=' ')
-# print(m)
-# mens_array=[]
-#
-# st=str(m)
-#
-#
-# print('Sign')
-# crip_array=sign(st)
-# print(crip_array)
-#
-# print('Verification')
-# #messa_array=ver('9883992373/5548158300/3903790183/10476177647/7025471146/168550448/3903790183/452861407/',270618377,n,m)
-# messa_array=ver(crip_array,m)
-# print(messa_array)
+#m='6882326879666683'
+m='Hello'
+#m='AZaz'
+print('m=',end=' ')
+print(m)
+mens_array=[]
+
+st=str(m)
+
+
+print('Sign')
+crip_array=sign(st)
+print(crip_array)
+
+print('Verification')
+#messa_array=ver('9883992373/5548158300/3903790183/10476177647/7025471146/168550448/3903790183/452861407/',270618377,n,m)
+messa_array=ver(crip_array)
+print(messa_array)
 #
 #
 # print(prE())
