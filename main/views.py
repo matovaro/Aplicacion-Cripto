@@ -32,7 +32,7 @@ def aes(request):
 			if(algoritm == 'cifrar'):
 				men = encryp(text,key)
 				modo = 'cifrado'
-				firma = sign(text + key)
+				firma = sign(men)
 				f= open("firma.txt","w")
 				f.write(firma)
 				f.close()
@@ -75,6 +75,10 @@ def eoa(request):
 			if(algoritm == 'cifrar'):
 				men = tbca.cifrar(text,key,iv)
 				modo = 'cifrado'
+				firma = sign(men)
+				f= open("firma.txt","w")
+				f.write(firma)
+				f.close()
 			else:
 				men = tbca.descifrar(text, key,iv)
 				modo = 'decifrado'
