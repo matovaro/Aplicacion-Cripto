@@ -57,42 +57,7 @@ def breakArray(stri):
         men_arr.append(tempo)
     return  men_arr
 
-def sign(strin,d,n):
-    y = []
-    x = breakArray(strin)
-    for i in range(len(x)):
-        g=x[i]
-        tm=''
-        for j in range(len(g)):
-            tm=tm+str(g[j])
 
-        te=int(tm)
-        cr = powermod(te, d, n)
-        y.append(cr)
-
-    re=''
-    for i in range(len(y)):
-        re=re+str(y[i])+'&'
-    return re
-
-def ver(y,e,n,m):
-    x = []
-    test=y.rstrip('&').split('&')
-    for i in range(len(test)):
-        mens = powermod(int(test[i]), e, n)
-        x.append(mens)
-    fx=''
-    for i in range(len(x)):
-        fx=fx+str(x[i])+'&'
-    fn=fx.rstrip('&').split('&')
-
-    fx=''
-    for j in range(len(fn)):
-        fx=fx+chr(int(fn[j]))
-    if(fx == m):
-        return fx
-    else:
-        return 'Firma no valida'
 
 def getE(lim):
     return random.randint(1, lim)
@@ -123,6 +88,61 @@ while(d < 0):
     d = EA[2]
 
 
+def sign(strin):
+    y = []
+    x = breakArray(strin)
+    for i in range(len(x)):
+        g=x[i]
+        tm=''
+        for j in range(len(g)):
+            tm=tm+str(g[j])
+
+        te=int(tm)
+        cr = powermod(te, d, n)
+        y.append(cr)
+
+    re=''
+    for i in range(len(y)):
+        re=re+str(y[i])+'&'
+    return re
+
+# def ver(y,m):
+#     x = []
+#     test=y.rstrip('&').split('&')
+#     for i in range(len(test)):
+#         mens = powermod(int(test[i]), e, n)
+#         x.append(mens)
+#     fx=''
+#     for i in range(len(x)):
+#         fx=fx+str(x[i])+'&'
+#     fn=fx.rstrip('&').split('&')
+#
+#     fx=''
+#     for j in range(len(fn)):
+#         fx=fx+chr(int(fn[j]))
+#     if(fx == m):
+#         return fx
+#     else:
+#         return 'Firma no valida'
+
+
+def ver(y,m):
+    x = []
+    test=y.rstrip('&').split('&')
+    for i in range(len(test)):
+        mens = powermod(int(test[i]), e, n)
+        x.append(mens)
+    fx=''
+    for i in range(len(x)):
+        fx=fx+str(x[i])+'&'
+    fn=fx.rstrip('&').split('&')
+
+    fx=''
+    for j in range(len(fn)):
+        fx=fx+chr(int(fn[j]))
+
+    return fx
+
 def prE():
     return e
 def prD():
@@ -141,12 +161,12 @@ def prD():
 #
 #
 # print('Sign')
-# crip_array=sign(st,d,n)
+# crip_array=sign(st)
 # print(crip_array)
 #
 # print('Verification')
 # #messa_array=ver('9883992373/5548158300/3903790183/10476177647/7025471146/168550448/3903790183/452861407/',270618377,n,m)
-# messa_array=ver(crip_array,e,n,m)
+# messa_array=ver(crip_array,m)
 # print(messa_array)
 #
 #
