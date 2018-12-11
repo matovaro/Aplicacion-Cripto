@@ -126,23 +126,36 @@ def sign(strin):
 #         return 'Firma no valida'
 
 
-def ver(y,m):
+def ver(y):
     x = []
     test=y.rstrip('&').split('&')
     for i in range(len(test)):
         mens = powermod(int(test[i]), e, n)
         x.append(mens)
-    fx=''
+    # fx = '' 
+    # for i in range(len(x)):
+    #     fx=fx+str(x[i])+'&'
+    # fn=fx.rstrip('&').split('&')
+    # fx=''
+    # for j in range(len(fn)):
+    #     fx=fx+chr(int(fn[j]))
+    # return fx
+    try:
+        fn = getFn(x)
+        return getMessage(fn)
+    except:
+        return 0
+def getFn(x):
+    fx = ''
     for i in range(len(x)):
         fx=fx+str(x[i])+'&'
-    fn=fx.rstrip('&').split('&')
+    return fx.rstrip('&').split('&')
 
+def getMessage(fn):
     fx=''
     for j in range(len(fn)):
         fx=fx+chr(int(fn[j]))
-
     return fx
-
 def prE():
     return e
 def prD():

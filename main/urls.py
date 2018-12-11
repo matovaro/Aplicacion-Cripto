@@ -11,7 +11,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('aes', views.aes, name='aes'),
     path('eoa', views.eoa, name='eoa'),
-
+    path('firma', views.firma, name='test'),
+    path('ver', views.verification, name='ver'),
     path('<int:save_id>/', views.detail, name='detail')
 
 ]

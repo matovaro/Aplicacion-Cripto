@@ -6,11 +6,11 @@
 	<link rel="stylesheet" type="text/css" href="{% static './main/style.css' %}">
 </head>
 <body>
-	<h1  id="titulo">TBCA</h1>
-	<form method="post" id="form">
+	<h1  id="titulo">verificacion</h1>
+	<form method="post" id="form" >
 		{% csrf_token %}
 		{{ form	}}
-		<button class="submit"  type="submit">Iniciar</button>
+		<button class="submit"  type="submit">Verificar</button>
 	</form>
 	<a href="/"><button>volver</button></a>
 </body>
