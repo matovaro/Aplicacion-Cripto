@@ -197,6 +197,7 @@ def encryp(mensaje, key):
     cont = 0
     extr = 0
     numMensajes = 1;
+    mensaje = mensaje+'x'
     mansajes = {}
 
     while cont < len(mensaje):
@@ -238,7 +239,7 @@ def encryp(mensaje, key):
                     string += sTem[1]
     return string
 
-print(encryp('10778973248&10588082327&7528523797&7528523797&4329290755&','hola'))
+#print(encryp('legoland','hola'))
 #/////////////////////////////////////////////////////////decrypt////////////////////////
 
 def invMixx(r):
@@ -333,28 +334,44 @@ def decrypt(mensaje, key):
         matris = blokes[i]
         for j in range(4):
             for k in range(4):
-                if j==3 and k==3:
+                if j==3 and k==3 and matris[j][k] < 17:
+
                     string += str(matris[j][k])
                 #print(matris[j][k], end=' ')
                 else:
                     string += chr(matris[j][k])
                 #print(chr(matris[j][k]))
     #print(string)
-    tam = int(string[len(string)-1])
-    string = string[0:len(string)-tam-1]
+    tam=''
+    for i in range(len(string)-1,-1,-1):
+        if string[i].isdigit():
+            tam=string[i]+tam
+        else:
+            break
+    #tam = int(string[len(string)-1])
+    tama=-1
+    if tam != '':
+        tama=int(tam)
+
+    if tama > 9:
+        string = string[0:len(string) - tama - 3]
+    else:
+        string = string[0:len(string) - tama - 2]
+
+    print(string)
     return string
-#print(decrypt('9f3ec775fc6ecaf661ce6884e70bd32219f75d6ca48e121490c3cb13c25e5b06368484fa5cc4e596c246fd88401a595b','vamosaproba'))
+#print(decrypt('8baf2995838b74f9814f25194619cf7a','hola'))
 
 #/////////////////////////////////////////PRUEBA DE QUE FUNCIONA/////////////////////////
-# mensaje = "hola mundo123"
-# llave = 'a23456asdf423658'
-#
-# cText = encryp(mensaje, llave)
-#
-# pText = decrypt(cText, llave)
-#
-#
-# print(cText)
-# print(pText)
+mensaje = "11234567890123456"
+llave = 'a23456asdf423658'
+
+cText = encryp(mensaje, llave)
+
+pText = decrypt(cText, llave)
+
+
+print(cText)
+print(pText)
 
 
