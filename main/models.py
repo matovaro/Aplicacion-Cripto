@@ -8,7 +8,7 @@ class Save (models.Model):
 	cipher_text = models.CharField(max_length = 1000)
 	algoritm = models.IntegerField(default=0)
 	date = models.DateTimeField('date creation')
-	firm = models.CharField(max_length = 10000, default='')
+	firm = models.CharField(max_length = 100000)
 
 
 datetime.timedelta(days=1)
