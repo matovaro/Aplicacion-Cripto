@@ -37,7 +37,7 @@ def aes(request):
 				men = encryp(text,key)
 				modo = 'cifrado'
 				firma = sign(men)
-				print(firma)
+				#print(firma)
 				f= open("firma.txt","w")
 				f.write(firma)
 				f.close()
@@ -50,7 +50,8 @@ def aes(request):
 					'text': text,
 					'algoritm': algoritm,
 					'men': men,
-					'modo': modo
+					'modo': modo,
+					'firma':firma
 			}
 
 			
@@ -95,7 +96,8 @@ def eoa(request):
 				'text': text,
 				'algoritm': algoritm,
 				'men': men,
-				'modo': modo
+				'modo': modo,
+				'firma':firma
 			}
 			s = Save(user=user, cipher_text=men, algoritm=2, date=timezone.now(), firm=firma)
 			s.save()
@@ -157,7 +159,7 @@ def validar(request):
 		if ans == 0:
 			mensaje['men'] = "Certificado no valido"
 		else:
-			mensaje['men'] = ans
+			mensaje['men'] = "El mensaje es valido por firma"
 		#mensaje['men'] = "error en la firma2"
 
 	return render (request, 'main/validar.html', mensaje)

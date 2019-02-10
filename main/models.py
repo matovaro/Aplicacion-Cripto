@@ -13,4 +13,6 @@ class Save (models.Model):
 
 datetime.timedelta(days=1)
 
+
+
 # Create your models here.
