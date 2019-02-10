@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Validacion</title>
+	{%load static from staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static './main/style.css' %}">
+</head>
+<body>
+	{% csrf_token %}
+	<h1>Validacion</h1>
+	<h5>FIRMA:</h5>
+	<p>{{firma}}</p>
+	<h5>MENSAJE:</h5>
+	<p>{{men}}</p>
+	<a href="/firma"><button id="vover">volver</button></a>
+</body>
+</html>

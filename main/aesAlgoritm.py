@@ -371,7 +371,4 @@ cText = encryp(mensaje, llave)
 pText = decrypt(cText, llave)
 
 
-print(cText)
-print(pText)
-
 
