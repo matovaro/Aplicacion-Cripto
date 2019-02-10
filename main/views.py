@@ -1,3 +1,6 @@
+from django.core import serializers
+
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
@@ -27,12 +30,14 @@ def aes(request):
 			key = form.cleaned_data['key']
 			text = form.cleaned_data['text']
 			algoritm = form.cleaned_data['algoritm']
+			user = form.cleaned_data['user']
 			modo = ''
 
 			if(algoritm == 'cifrar'):
 				men = encryp(text,key)
 				modo = 'cifrado'
 				firma = sign(men)
+				#print(firma)
 				f= open("firma.txt","w")
 				f.write(firma)
 				f.close()
@@ -45,11 +50,12 @@ def aes(request):
 					'text': text,
 					'algoritm': algoritm,
 					'men': men,
-					'modo': modo
+					'modo': modo,
+					'firma':firma
 			}
 
 			
-			s = Save(text_plain=text, cipher_text=men, algoritm=1, date=timezone.now())
+			s = Save(user=user, cipher_text=men, algoritm=1, date=timezone.now(), firm=firma)
 			s.save()
 			return render(request, 'main/result.html', result)
 
@@ -64,6 +70,7 @@ def eoa(request):
 			text = form.cleaned_data['text']
 			algoritm = form.cleaned_data['algoritm']
 			modo = ''
+			user = form.cleaned_data['user']
 			#implementar algoritmo
 			#print(key, text, algoritm)
 			men = "mensaje"
@@ -76,6 +83,7 @@ def eoa(request):
 				men = tbca.cifrar(text,key,iv)
 				modo = 'cifrado'
 				firma = sign(men)
+				print(len(firma))
 				f= open("firma.txt","w")
 				f.write(firma)
 				f.close()
@@ -83,16 +91,15 @@ def eoa(request):
 				men = tbca.descifrar(text, key,iv)
 				modo = 'decifrado'
 
-
-
 			result = {
 				'key': key,
 				'text': text,
 				'algoritm': algoritm,
 				'men': men,
-				'modo': modo
+				'modo': modo,
+				'firma':firma
 			}
-			s = Save(text_plain=text, cipher_text=men, algoritm=2, date=timezone.now())
+			s = Save(user=user, cipher_text=men, algoritm=2, date=timezone.now(), firm=firma)
 			s.save()
 			return render(request, 'main/result.html', result)
 
@@ -103,12 +110,14 @@ def eoa(request):
 
 def detail (request, save_id):
 	return HttpResponse('estas viendo el registro numero %s' % save_id)
+
+"""
 def firma(request):
 	f= open("firma.txt","r")
 	firma = f.read()
 	f.close()
 	return HttpResponse(firma, content_type="text/plain")
-
+"""
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
@@ -126,6 +135,33 @@ def verification(request):
 				result = ans
 			return render(request, 'main/verifier.html', {'text': result})
 		else:
-			print(form)
+			print()
 	form = CheckForm()
 	return render(request, 'main/ver.html', {'form': form})
+
+def firma(request):
+	context = {}
+	#context['lista'] = serializers.serialize("json",Save.objects.all())
+	context['lista'] = list(Save.objects.all())
+
+	return render (request, 'main/firma.html', context)
+
+def validar(request):
+	##rint(request.POST.get('valor'))
+	mensaje = {}
+	mensaje['firma'] = request.POST.get('valor')
+	try: 
+		ans = ver(mensaje['firma'])	
+	except:
+		mensaje['men'] = "error en la firma"
+	else:
+		print(ans)
+		if ans == 0:
+			mensaje['men'] = "Certificado no valido"
+		else:
+			mensaje['men'] = "El mensaje es valido por firma"
+		#mensaje['men'] = "error en la firma2"
+
+	return render (request, 'main/validar.html', mensaje)
+
+

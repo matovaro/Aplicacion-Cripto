@@ -1,5 +1,5 @@
 import base64
-import secrets
+#import secrets
 import codecs
 
 
@@ -296,14 +296,11 @@ IV = "12345678"
 # Se obtiene el cipher Text en hexadecimal (Habría que pasarlo a codigo ASCII)
 cipherText = tbca.cifrar(mensaje, clave, IV)
 #Se imprime el cipher Text
-print("Cifrado: ", cipherText)
 #Para descifrar, llamar a la función descifrar del objeto,
 #se debe pasar el cipher text como un string de hexadecimales.
 #Se obtiene el mensaje descifrado, en ASCII
 mensajedescifrado = tbca.descifrar(cipherText, clave, IV)
 #Se imprime el mendaje descifrado
-print("descifrado: ", mensajedescifrado)
-
 
 '''Valores del IV que cambian el resultado:
 446cabef

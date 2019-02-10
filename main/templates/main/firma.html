@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Firma</title>
+	{%load static from staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static './main/style.css' %}">
+</head>
+<body>
+	<h1 id='titulo'>Ragristro de Mensajes</h1>
+	<a href="/"><button id="vover">volver</button></a>
+	<table>
+		<thead>
+			<tr>
+				<th>Ususrio</th>
+				<th>Fecha</th>
+				<th>Texto cifrado</th>
+				<th>Firma</th>
+				<th>Validacion de Firma</th>
+			</tr>
+		</thead>
+		<tbody>
+			{%for item in lista%}
+			<tr>
+				<th>{{item.user}}</th>
+				<th>{{item.date}}</th>
+				<th>{{item.cipher_text}}</th>
+				<th>{{item.firm}}</th>
+				
+				<th>
+					<form  action='validar' method="post">
+						{% csrf_token %}
+						<input type="hidden" name="valor" value="{{item.firm}}">
+						<input type="submit" name='itmem.firm' value="validar"  />
+					</form>
+				</th>
+			</tr>
+			{%endfor%}
+		</tbody>
+	</table>
+</body>
+</html>

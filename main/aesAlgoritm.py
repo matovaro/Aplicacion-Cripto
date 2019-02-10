@@ -363,6 +363,7 @@ def decrypt(mensaje, key):
 #print(decrypt('8baf2995838b74f9814f25194619cf7a','hola'))
 
 #/////////////////////////////////////////PRUEBA DE QUE FUNCIONA/////////////////////////
+<<<<<<< HEAD
 # mensaje = "11234567890123456"
 # llave = 'a23456asdf423658'
 #
@@ -373,5 +374,14 @@ def decrypt(mensaje, key):
 #
 # print(cText)
 # print(pText)
+=======
+mensaje = "11234567890123456"
+llave = 'a23456asdf423658'
+
+cText = encryp(mensaje, llave)
+
+pText = decrypt(cText, llave)
+
+>>>>>>> ec7586c1bd48b12e6fa44d33c287b51ec926696b
 
 
