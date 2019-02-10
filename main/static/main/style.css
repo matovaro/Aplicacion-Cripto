@@ -33,17 +33,17 @@ body{
 
 .text{
 	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
-	font-size: 20px;
+	font-size: 1.5em;
 	text-align: center;
-	width: 700px !important;
+	width: 80% !important;
 	height: 200px;
 	overflow: scroll;
-	margin-left: 15em;
+	margin: 10px auto;
 }
 
 #key{
 	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
-	font-size: 20px;
+	font-size: 1.9em;
 	text-align: center;
 	color: red;
 }
@@ -53,7 +53,117 @@ body{
 	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
 	display: grid;
 	grid-template-rows: 20px 30px 20px 200px 20px 80px 30px ;
-	width: 700px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.submit{
+	background-color: rgba(2, 1, 255, 0.57);
+	margin: 10px auto;
+	display: block;
+	border: none;
+	font-size: 1.4em;
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+}
+
+table{
+	width: 100%;
+	font-family: 'Montserrat', sans-serif;
+}
+th{
+	background-color: rgba(2, 1, 255, 0.57);
+	border-top-left-radius: 5%;
+	border-top-right-radius: 5%;
+	color: white;
+	font-size: 1.2em;
+}
+td{
+	text-align: center;
+	border: none;
+	border-bottom: 1px solid #171818;
+	margin:5px 0 5px 0;
+	padding: 5px;
+}
+.tm-15{
+	width: 15%;
+}
+.tm-10{
+	width: 10%;
+}
+.tm-20{
+	width: 20%;
+}
+.tm-40{
+	width: 40%;
+}
+
+
+
+/* #descr{
+	position: relative;
+}
+#descr:before {
+    content: '&nbsp;';
+    visibility: hidden;
+}
+#descr span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+ */
+#descr{
+	word-break: break-all;
+}
+.bntValidar{
+	background-color:  rgba(27, 204, 3, 0.71);
+	border: none;
+	color: white;
+}
+
+label{
+	font-family: 'Montserrat', sans-serif;
+}
+
+tr{
+	border-bottom: 1px solid #171818;
+}
+.contenedor{
+	margin: 0 auto;
+}
+
+#vover{
+	background-color: rgba(2, 1, 255, 0.57);
+	margin: 0 auto;
+	display: block;
+	border: none;
+	font-size: 1.4em;
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+}
+
+h5{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.5em;
+}
+.center{
+	text-align: center;
+}
+.tm-80{
+	max-width: 90%;
+	word-break: break-all;
+	margin: 0 auto;
+}
+p{
+	font-family: 'Montserrat', sans-serif;
 }
 
 

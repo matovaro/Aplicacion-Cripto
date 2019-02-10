@@ -1,38 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Firma</title>
 	{%load static from staticfiles %}
-	<link rel="stylesheet" type="text/css" href="{% static './main/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static './main/normalize.css' %}"> 
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static './main/style.css' %}"> 
+	
 </head>
 <body>
-	<h1 id='titulo'>Ragristro de Mensajes</h1>
+	<h1 id='titulo'>Registro de Mensajes</h1>
 	<a href="/"><button id="vover">volver</button></a>
 	<table>
 		<thead>
 			<tr>
-				<th>Ususrio</th>
-				<th>Fecha</th>
-				<th>Texto cifrado</th>
-				<th>Firma</th>
-				<th>Validacion de Firma</th>
+				<th class="tm-15">Usuario</th>
+				<th class="tm-15">Fecha</th>
+				<th class="tm-40">Texto cifrado</th>
+				<th class="tm-20">Firma</th>
+				<th class="tm-10">Validacion de Firma</th>
 			</tr>
 		</thead>
 		<tbody>
 			{%for item in lista%}
-			<tr>
-				<th>{{item.user}}</th>
-				<th>{{item.date}}</th>
-				<th>{{item.cipher_text}}</th>
-				<th>{{item.firm}}</th>
+			<tr >
+				<td>{{item.user}}</td>
+				<td>{{item.date}}</td>
+				<td id="descr"><span>{{item.cipher_text}}</span></td>
+				<td id="descr"><span>{{item.firm}}</span></td>
 				
-				<th>
+				<td>
 					<form  action='validar' method="post">
 						{% csrf_token %}
 						<input type="hidden" name="valor" value="{{item.firm}}">
-						<input type="submit" name='itmem.firm' value="validar"  />
+						<input type="submit" name='itmem.firm' value="validar" class="bntValidar" />
 					</form>
-				</th>
+				</td>
 			</tr>
 			{%endfor%}
 		</tbody>

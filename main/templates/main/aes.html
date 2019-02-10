@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>AES aAlgortim</title>
+	<title>AES</title>
 	{%load static from staticfiles %}
-	<link rel="stylesheet" type="text/css" href="{% static './main/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static './main/normalize.css' %}"> 
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static './main/style.css' %}"> 
 </head>
 <body>
-	<h1 id="titulo">AES Algoritm</h1>
+	<h1 id="titulo">AES</h1>
 	<form method="post" id="form">
 		{% csrf_token %}
 		{{ form }}

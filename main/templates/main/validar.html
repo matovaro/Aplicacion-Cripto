@@ -3,13 +3,18 @@
 <head>
 	<title>Validacion</title>
 	{%load static from staticfiles %}
-	<link rel="stylesheet" type="text/css" href="{% static './main/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static './main/normalize.css' %}"> 
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static './main/style.css' %}"> 
 </head>
-<body>
+<body class="center">
 	{% csrf_token %}
-	<h1>Validacion</h1>
+	<h1 id="titulo">Validación</h1>
 	<h5>FIRMA:</h5>
-	<p>{{firma}}</p>
+	<div  class="tm-80">
+		<p>{{firma}}</p>
+	</div>
+	
 	<h5>MENSAJE:</h5>
 	<p>{{men}}</p>
 	<a href="/firma"><button id="vover">volver</button></a>
