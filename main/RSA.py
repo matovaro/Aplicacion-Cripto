@@ -60,8 +60,8 @@ def breakArray(stri):
 
 
 def getE(lim):
-    #return random.randint(1, lim)
-    return 7
+    return random.randint(1, lim)
+    #return 7
 
 
 p=104723
