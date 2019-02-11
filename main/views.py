@@ -41,8 +41,12 @@ def aes(request):
 				f= open("firma.txt","w")
 				f.write(firma)
 				f.close()
+
+				s = Save(user=user, cipher_text=men, algoritm=1, date=timezone.now(), firm=firma)
+				s.save()
 			else:
 				men = decrypt(text,key)
+				firma = sign(men)
 				modo = 'decifrado'
 
 			result = {
@@ -55,8 +59,7 @@ def aes(request):
 			}
 
 			
-			s = Save(user=user, cipher_text=men, algoritm=1, date=timezone.now(), firm=firma)
-			s.save()
+
 			return render(request, 'main/result.html', result)
 
 	form = Algoritm()
@@ -80,15 +83,20 @@ def eoa(request):
 			iv = '12345678'
 
 			if(algoritm == 'cifrar'):
-				men = tbca.cifrar(text,key,iv)
+				#men = tbca.cifrar(text,key,iv)
+				men = tbca.cifrar(text, key)
 				modo = 'cifrado'
 				firma = sign(men)
 				print(len(firma))
 				f= open("firma.txt","w")
 				f.write(firma)
 				f.close()
+				s = Save(user=user, cipher_text=men, algoritm=2, date=timezone.now(), firm=firma)
+				s.save()
 			else:
-				men = tbca.descifrar(text, key,iv)
+				#men = tbca.descifrar(text, key,iv)
+				men = tbca.descifrar(text, key)
+				firma = sign(men)
 				modo = 'decifrado'
 
 			result = {
@@ -99,8 +107,7 @@ def eoa(request):
 				'modo': modo,
 				'firma':firma
 			}
-			s = Save(user=user, cipher_text=men, algoritm=2, date=timezone.now(), firm=firma)
-			s.save()
+
 			return render(request, 'main/result.html', result)
 
 	form = Algoritm()
