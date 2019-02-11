@@ -8,3 +8,10 @@ class Algoritm(forms.Form):
 
 class CheckForm(forms.Form):
 	text = forms.CharField( widget=forms.Textarea())
+
+
+class Algoritm2(forms.Form):
+	user = forms.CharField(max_length=100) 
+	key = forms.CharField(min_length=7)
+	text = forms.CharField( widget=forms.Textarea(), max_length=1000)
+	algoritm = forms.ChoiceField(choices=[('cifrar', 'cifrar'), ('descifrar', 'descifrar')], widget=forms.RadioSelect())

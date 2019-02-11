@@ -8,7 +8,7 @@ from django.http import Http404
 
 from .models import Save
 from django.shortcuts import get_object_or_404, render
-from .forms import Algoritm, CheckForm
+from .forms import Algoritm, CheckForm,Algoritm2
 from django.utils import timezone
 from .aesAlgoritm import encryp, decrypt
 from .RSA import sign, ver
@@ -67,7 +67,7 @@ def aes(request):
 
 def eoa(request):	
 	if request.method == "POST":
-		form = Algoritm(request.POST)
+		form = Algoritm2(request.POST)
 		if form.is_valid():
 			key = form.cleaned_data['key']
 			text = form.cleaned_data['text']
@@ -110,7 +110,7 @@ def eoa(request):
 
 			return render(request, 'main/result.html', result)
 
-	form = Algoritm()
+	form = Algoritm2()
 	return render(request, 'main/eoa.html', {'form': form})
 
 
